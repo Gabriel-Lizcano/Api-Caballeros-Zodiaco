@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: API Caballeros del Zodiaco
+  version: 1.0.0
+  description: API para gestionar personajes de Los Caballeros del Zodiaco
+
+servers:
+  - url: http://localhost:8081
+    description: Servidor online para consultar personajes
+  - url: http://localhost:8080
+    description: Servidor online para insertar personajes
+  - url: http://localhost:8082
+    description: Servidor online para actualizar personajes
+  - url: http://localhost:8083
+    description: Servidor online para eliminar personajes
+
+paths:
+  /consultar-personajes:
+    get:
+      summary: Consultar todos los personajes
+      description: Obtiene la lista completa de personajes almacenados en la base de datos.
+      responses:
+        '200':
+          description: Lista de personajes obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Personaje'
+
+  /insertar-personajes:
+    post:
+      summary: Inserta un nuevo personaje
+      description: Agrega un nuevo personaje a la base de datos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Personaje'
+      responses:
+        '201':
+          description: Personaje insertado correctamente
+        '400':
+          description: Error en los datos enviados
+
+  /actualizar-personajes/{id}:
+    put:
+      summary: Actualizar un personaje existente
+      description: Modifica los datos de un personaje por su ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del personaje a actualizar
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Personaje'
+      responses:
+        '200':
+          description: Personaje actualizado correctamente
+        '404':
+          description: Personaje no encontrado
+
+  /eliminar-personajes/{id}:
+    delete:
+      summary: Eliminar un personaje
+      description: Elimina un personaje existente por su ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del personaje a eliminar
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Personaje eliminado correctamente
+        '404':
+          description: Personaje no encontrado
+
+components:
+  schemas:
+    Personaje:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "64f1b22d9e2a3b0012a56f7b"
+        nombre:
+          type: string
+          example: "Seiya"
+        armadura:
+          type: string
+          example: "Pegaso"
+        rango:
+          type: string
+          example: "Bronce"
+        poder:
+          type: integer
+          example: 9500

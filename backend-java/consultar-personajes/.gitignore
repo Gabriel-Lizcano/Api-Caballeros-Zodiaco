@@ -1,0 +1,22 @@
+# Archivos de compilación de Java
+/target/
+*.class
+
+# Archivos de configuración del IDE
+/.idea/
+/*.iml
+/.vscode/
+
+# Archivos de logs
+*.log
+
+# Dependencias
+/.mvn/
+*.jar
+
+# Configuración de Spring Boot que contiene secretos
+.env
+
+# OS
+.DS_Store
+Thumbs.db
