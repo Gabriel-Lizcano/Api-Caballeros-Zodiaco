@@ -3,8 +3,8 @@ FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copiar archivos del proyecto
-COPY pom.xml .
-COPY src ./src
+COPY consultar-personajes/pom.xml .
+COPY consultar-personajes/src ./src
 
 # Descargar dependencias y compilar sin tests
 RUN mvn -q -DskipTests clean package
