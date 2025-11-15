@@ -1,26 +1,23 @@
 package com.ejemplo.backend;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 
 @SpringBootApplication
 public class ConsultarApplication {
     public static void main(String[] args) {
-        // Carga las variables del archivo .env
-        Dotenv dotenv = Dotenv.load();
 
-        String mongoHost = dotenv.get("MONGO_HOST");
-        String mongoUser = dotenv.get("MONGO_USER");
-        String mongoPassword = dotenv.get("MONGO_PASS");
-        String mongoDB = dotenv.get("MONGO_DB");
+        // Leer desde variables de entorno (Render)
+        String mongoHost = System.getenv("MONGO_HOST");
+        String mongoUser = System.getenv("MONGO_USER");
+        String mongoPassword = System.getenv("MONGO_PASS");
+        String mongoDB = System.getenv("MONGO_DB");
 
+        // Validación
         if (mongoHost == null || mongoUser == null || mongoPassword == null || mongoDB == null) {
-            throw new RuntimeException(".env variables are missing!");
+            throw new RuntimeException("Environment variables are missing! Check Render dashboard.");
         }
 
-        // Las ponemos como propiedades del sistema para que Spring Boot las lea
         System.setProperty("MONGO_HOST", mongoHost);
         System.setProperty("MONGO_USER", mongoUser);
         System.setProperty("MONGO_PASS", mongoPassword);
