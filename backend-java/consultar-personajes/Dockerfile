@@ -1,27 +1,21 @@
-# Etapa de construcción
+# Etapa 1: Construcción
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copiar pom.xml y descargar dependencias
+# Copiar archivos del proyecto
 COPY pom.xml .
-RUN mvn -q -e -DskipTests dependency:go-offline
-
-# Copiar código fuente
 COPY src ./src
 
-# Construir el proyecto sin tests
-RUN mvn clean package -DskipTests
+# Descargar dependencias y compilar sin tests
+RUN mvn -q -DskipTests clean package
 
-# Etapa de ejecución
+# Etapa 2: Ejecución
 FROM eclipse-temurin:17-jdk
+
 WORKDIR /app
 
-# Copiar el JAR construido desde la etapa build
 COPY --from=build /app/target/*.jar app.jar
 
-# Configurar puerto dinámico para Render
-ENV PORT 8081
-EXPOSE $PORT
+EXPOSE 8080
 
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
