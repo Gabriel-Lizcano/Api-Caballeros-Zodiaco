@@ -3,7 +3,7 @@ import axios from 'axios';
 // URLs de los microservicios
 const API_BASE_URLS = {
   consultar: 'https://colsultar-personaje.onrender.com/consultar-personajes',
-  insertar: 'https://insertar-personajes.onrender.com/insertar-personajes',
+  insertar: 'https://insertar-personaje.onrender.com/insertar-personajes',
   actualizar: 'https://actualizar-personaje.onrender.com/actualizar-personajes',
   eliminar: 'https://eliminar-personaje.onrender.com/eliminar-personajes',
 };
