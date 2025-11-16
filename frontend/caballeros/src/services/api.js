@@ -2,10 +2,10 @@ import axios from 'axios';
 
 // URLs de los microservicios
 const API_BASE_URLS = {
-  consultar: 'https://consultar-personajes.onrender.com',
+  consultar: 'https://colsultar-personaje.onrender.com/consultar-personajes',
   insertar: 'https://insertar-personajes.onrender.com/insertar-personajes',
-  actualizar: 'https://actualizar-personajes.onrender.com/actualizar-personajes',
-  eliminar: 'https://eliminar-personajes.onrender.com/eliminar-personajes'
+  actualizar: 'https://actualizar-personaje.onrender.com/actualizar-personajes',
+  eliminar: 'https://eliminar-personaje.onrender.com/eliminar-personajes',
 };
 
 // Función para obtener todos los personajes
