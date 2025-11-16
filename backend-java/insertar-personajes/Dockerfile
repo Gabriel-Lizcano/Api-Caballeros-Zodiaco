@@ -3,8 +3,8 @@ FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copiar archivos del proyecto (desde la misma carpeta del Dockerfile)
-COPY backend-java/insertar-personajes/pom.xml .
-COPY backend-java/insertar-personajes/src ./src
+COPY pom.xml .
+COPY src ./src
 
 RUN mvn -q -DskipTests clean package
 
