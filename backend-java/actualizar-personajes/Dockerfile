@@ -2,10 +2,10 @@
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
-COPY pom.xml .
+COPY backend-java/actualizar-personajes/pom.xml .
 RUN mvn -q -e -DskipTests dependency:go-offline
 
-COPY src ./src
+COPY backend-java/actualizar-personajes/src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Ejecutar el JAR
