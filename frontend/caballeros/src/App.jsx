@@ -33,7 +33,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Caballeros del Zodiaco</h1>
-        <p>Gestión de Personajes</p>
+        <p>Gestión de Personajes</p><br />
+        <a href="https://swagger-docs-u1ft.onrender.com/swagger-ui.html" target='_blank' style={{color:'lightgreen'}}>Ver Documentacion-swagger</a>
       </header>
 
       <main className="app-main">
