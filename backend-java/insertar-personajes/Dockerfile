@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copiar archivos del proyecto (desde la misma carpeta del Dockerfile)
 COPY pom.xml .
-COPY src ./src
+COPY backend-java/insertar-personajes/src ./src
 
 RUN mvn -q -DskipTests clean package
 
