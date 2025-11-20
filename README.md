@@ -12,8 +12,9 @@ La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar, Elimi
 - **Documentación API**: Integración con Swagger para documentación interactiva de la API.
 - **Frontend React**: Interfaz moderna para gestionar personajes con formularios y listas.
 - **Base de Datos MongoDB**: Almacenamiento NoSQL para los datos de personajes.
-- **Configuración de Entorno**: Uso de variables de entorno con dotenv.
+- **Configuración de Entorno**: Uso de variables de entorno con System.getenv (compatible con Docker).
 - **CORS Configurado**: Soporte para solicitudes desde el frontend.
+- **Dockerización**: Todos los microservicios incluyen Dockerfiles para fácil despliegue.
 
 ## Tecnologías Utilizadas
 
@@ -26,8 +27,8 @@ La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar, Elimi
 - **Dotenv** para variables de entorno
 
 ### Frontend
-- **React 19**
-- **Vite** como bundler y servidor de desarrollo
+- **React 18**
+- **Vite 5.3.4** como bundler y servidor de desarrollo
 - **Axios** para llamadas HTTP a la API
 - **ESLint** para linting
 
@@ -66,7 +67,7 @@ MONGO_PASS=tu_contraseña_mongo
 MONGO_DB=caballeros_zodiaco
 ```
 
-Ajusta los valores según tu configuración de MongoDB.
+Ajusta los valores según tu configuración de MongoDB. Para despliegue con Docker, configura estas variables en tu entorno de contenedores.
 
 ### 3. Instalar Dependencias del Frontend
 
@@ -111,7 +112,7 @@ El frontend estará disponible en `http://localhost:5173` (puerto por defecto de
    - Editar personajes existentes.
    - Eliminar personajes.
 
-Para acceder a la documentación de la API, visita `http://localhost:8084/swagger-ui.html` (ajusta el puerto según tu configuración).
+Para acceder a la documentación de la API, visita `http://localhost:8085/swagger-ui.html` (ajusta el puerto según tu configuración).
 
 ## Endpoints de la API
 
